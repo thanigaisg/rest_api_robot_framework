@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.1 on win32)" generated="20230411 22:17:33.544" rpa="false" schemaversion="3">
+<suite id="s1" name="TC2 POST REQUEST" source="E:\Skillsets\Automation_Testing\Projects\Robot_Framework\Rest_API\TestCases\TC2_POST_REQUEST.robot">
+<test id="s1-t1" name="Put_CreateUser" line="9">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>mysession</arg>
+<arg>${base_url}</arg>
+<arg>verify=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230411 22:17:34.125" level="INFO">Creating Session using : alias=mysession, url=https://reqres.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20230411 22:17:34.124" endtime="20230411 22:17:34.126"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${body}</var>
+<arg>name=Rest_API</arg>
+<arg>job=Robot_Framework</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230411 22:17:34.128" level="INFO">${body} = {'name': 'Rest_API', 'job': 'Robot_Framework'}</msg>
+<status status="PASS" starttime="20230411 22:17:34.127" endtime="20230411 22:17:34.128"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${body}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230411 22:17:34.129" endtime="20230411 22:17:34.130"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230411 22:17:34.132" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20230411 22:17:34.131" endtime="20230411 22:17:34.132"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${header}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230411 22:17:34.134" endtime="20230411 22:17:34.135"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${resp}</var>
+<arg>mysession</arg>
+<arg>/api/users</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20230411 22:17:34.617" level="INFO">POST Request : url=https://reqres.in/api/users 
+ path_url=/api/users 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '33'} 
+ body=name=Rest_API&amp;job=Robot_Framework 
+ </msg>
+<msg timestamp="20230411 22:17:34.618" level="INFO">POST Response : url=https://reqres.in/api/users 
+ status=400, reason=Bad Request 
+ headers={'Date': 'Tue, 11 Apr 2023 16:47:35 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Security-Policy': "default-src 'none'", 'X-Content-Type-Options': 'nosniff', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=Hh0WWKXYkauYUD0c%2BZzZEAeUHfAES0f7wmeVuQCvF%2FTlh%2FtABur8%2FQ9rw1DAxkve0Uvh6I5WEYKaPp3b49PZ6NhkL8%2F7Wb80LQhvjJAkCsmpA7Z%2F5UUaqbAoGw%3D%3D"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '7b64b654ab1d1d1c-BLR'} 
+ body=&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;title&gt;Error&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;pre&gt;Bad Request&lt;/pre&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+ 
+ </msg>
+<msg timestamp="20230411 22:17:34.618" level="FAIL">HTTPError: 400 Client Error: Bad Request for url: https://reqres.in/api/users</msg>
+<status status="FAIL" starttime="20230411 22:17:34.136" endtime="20230411 22:17:34.623"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${resp.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="NOT RUN" starttime="20230411 22:17:34.624" endtime="20230411 22:17:34.625"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>201</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" starttime="20230411 22:17:34.625" endtime="20230411 22:17:34.626"/>
+</kw>
+<status status="FAIL" starttime="20230411 22:17:34.122" endtime="20230411 22:17:34.626">HTTPError: 400 Client Error: Bad Request for url: https://reqres.in/api/users</status>
+</test>
+<status status="FAIL" starttime="20230411 22:17:33.554" endtime="20230411 22:17:34.629"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="TC2 POST REQUEST">TC2 POST REQUEST</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
