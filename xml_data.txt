@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<videoGames>
+    <videoGame category="Shooter" rating="Universal">
+        <id>1</id>
+        <name>Resident Evil 4</name>
+        <releaseDate>2005-10-01T00:00:00+05:30</releaseDate>
+        <reviewScore>85</reviewScore>
+    </videoGame>
+    <videoGame category="Driving" rating="Universal">
+        <id>2</id>
+        <name>Gran Turismo 3</name>
+        <releaseDate>2001-03-10T00:00:00+05:30</releaseDate>
+        <reviewScore>91</reviewScore>
+    </videoGame>
+    <videoGame category="Puzzle" rating="Universal">
+        <id>3</id>
+        <name>Tetris</name>
+        <releaseDate>1984-06-25T00:00:00+05:30</releaseDate>
+        <reviewScore>88</reviewScore>
+    </videoGame>
+    <videoGame category="Platform" rating="Universal">
+        <id>4</id>
+        <name>Super Mario 64</name>
+        <releaseDate>1996-10-20T00:00:00+05:30</releaseDate>
+        <reviewScore>90</reviewScore>
+    </videoGame>
+    <videoGame category="Adventure" rating="PG-13">
+        <id>5</id>
+        <name>The Legend of Zelda: Ocarina of Time</name>
+        <releaseDate>1998-12-10T00:00:00+05:30</releaseDate>
+        <reviewScore>93</reviewScore>
+    </videoGame>
+    <videoGame category="Shooter" rating="Mature">
+        <id>6</id>
+        <name>Doom</name>
+        <releaseDate>1993-02-18T00:00:00+05:30</releaseDate>
+        <reviewScore>81</reviewScore>
+    </videoGame>
+    <videoGame category="Puzzle" rating="Universal">
+        <id>7</id>
+        <name>Minecraft</name>
+        <releaseDate>2011-12-05T00:00:00+05:30</releaseDate>
+        <reviewScore>77</reviewScore>
+    </videoGame>
+    <videoGame category="Strategy" rating="Universal">
+        <id>8</id>
+        <name>SimCity 2000</name>
+        <releaseDate>1994-09-11T00:00:00+05:30</releaseDate>
+        <reviewScore>88</reviewScore>
+    </videoGame>
+    <videoGame category="RPG" rating="PG-13">
+        <id>9</id>
+        <name>Final Fantasy VII</name>
+        <releaseDate>1997-08-20T00:00:00+05:30</releaseDate>
+        <reviewScore>97</reviewScore>
+    </videoGame>
+    <videoGame category="Driving" rating="Mature">
+        <id>10</id>
+        <name>Grand Theft Auto III</name>
+        <releaseDate>2001-04-23T00:00:00+05:30</releaseDate>
+        <reviewScore>90</reviewScore>
+    </videoGame>
+</videoGames>

@@ -1,80 +1,316 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.11.1 on win32)" generated="20230414 22:21:48.307" rpa="false" schemaversion="3">
-<suite id="s1" name="TC4 COMPLEX JSON" source="E:\Skillsets\Automation_Testing\Projects\Robot_Framework\Rest_API\TestCases\TC4_COMPLEX_JSON.robot">
-<test id="s1-t1" name="ParseJSON: Returns all the video games" line="11">
+<robot generator="Robot 6.0.2 (Python 3.11.1 on win32)" generated="20230420 22:09:09.398" rpa="false" schemaversion="3">
+<suite id="s1" name="TC10 GOOGLEMAPAPIKEYAUTH" source="E:\Skillsets\Automation_Testing\Projects\Robot_Framework\Rest_API\TestCases\TC10_GOOGLEMAPAPIKEYAUTH.robot">
+<test id="s1-t1" name="GoogleMapAPIKeyAuth:" line="10">
 <kw name="Create Session" library="RequestsLibrary">
 <arg>mysession</arg>
 <arg>${base_url}</arg>
+<arg>verify=True</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20230414 22:21:48.702" level="INFO">Creating Session using : alias=mysession, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20230414 22:21:48.702" endtime="20230414 22:21:48.702"/>
+<msg timestamp="20230420 22:09:09.748" level="INFO">Creating Session using : alias=mysession, url=https://maps.googleapis.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20230420 22:09:09.748" endtime="20230420 22:09:09.748"/>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
-<var>${header}</var>
-<arg>Accept=application/json</arg>
+<var>${params}</var>
+<arg>location=-33.8670522,151.1957362</arg>
+<arg>radius=500</arg>
+<arg>types=restaurant</arg>
+<arg>name=harbour</arg>
+<arg>key=AIzaSyAk1wVfVP1wqDRV4QncZ4YF72JrcB7KCvc</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20230414 22:21:48.717" level="INFO">${header} = {'Accept': 'application/json'}</msg>
-<status status="PASS" starttime="20230414 22:21:48.717" endtime="20230414 22:21:48.717"/>
+<msg timestamp="20230420 22:09:09.748" level="INFO">${params} = {'location': '-33.8670522,151.1957362', 'radius': '500', 'types': 'restaurant', 'name': 'harbour', 'key': 'AIzaSyAk1wVfVP1wqDRV4QncZ4YF72JrcB7KCvc'}</msg>
+<status status="PASS" starttime="20230420 22:09:09.748" endtime="20230420 22:09:09.748"/>
 </kw>
 <kw name="GET On Session" library="RequestsLibrary">
 <var>${resp}</var>
 <arg>mysession</arg>
-<arg>app/videogames</arg>
-<arg>headers=${header}</arg>
+<arg>${req_uri}</arg>
+<arg>params=${params}</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20230414 22:21:48.733" level="INFO">GET Request : url=http://localhost:8080/app/videogames 
- path_url=/app/videogames 
- headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive'} 
+<msg timestamp="20230420 22:09:10.658" level="INFO">GET Request : url=https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522%2C151.1957362&amp;radius=500&amp;types=restaurant&amp;name=harbour&amp;key=AIzaSyAk1wVfVP1wqDRV4QncZ4YF72JrcB7KCvc 
+ path_url=/maps/api/place/nearbysearch/json?location=-33.8670522%2C151.1957362&amp;radius=500&amp;types=restaurant&amp;name=harbour&amp;key=AIzaSyAk1wVfVP1wqDRV4QncZ4YF72JrcB7KCvc 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg timestamp="20230414 22:21:48.733" level="INFO">GET Response : url=http://localhost:8080/app/videogames 
- status=200, reason= 
- headers={'Content-Type': 'application/json', 'Content-Length': '1183', 'Date': 'Fri, 14 Apr 2023 16:51:48 GMT'} 
- body=[{"id":1,"name":"Resident Evil 4","releaseDate":"2005-10-01","reviewScore":85,"category":"Shooter","rating":"Universal"},{"id":2,"name":"Gran Turismo 3","releaseDate":"2001-03-10","reviewScore":91,"category":"Driving","rating":"Universal"},{"id":3,"name":"Tetris","releaseDate":"1984-06-25","reviewScore":88,"category":"Puzzle","rating":"Universal"},{"id":4,"name":"Super Mario 64","releaseDate":"1996-10-20","reviewScore":90,"category":"Platform","rating":"Universal"},{"id":5,"name":"The Legend of Zelda: Ocarina of Time","releaseDate":"1998-12-10","reviewScore":93,"category":"Adventure","rating":"PG-13"},{"id":6,"name":"Doom","releaseDate":"1993-02-18","reviewScore":81,"category":"Shooter","rating":"Mature"},{"id":7,"name":"Minecraft","releaseDate":"2011-12-05","reviewScore":77,"category":"Puzzle","rating":"Universal"},{"id":8,"name":"SimCity 2000","releaseDate":"1994-09-11","reviewScore":88,"category":"Strategy","rating":"Universal"},{"id":9,"name":"Final Fantasy VII","releaseDate":"1997-08-20","reviewScore":97,"category":"RPG","rating":"PG-13"},{"id":10,"name":"Grand Theft Auto III","releaseDate":"2001-04-23","reviewScore":90,"category":"Driving","rating":"Mature"}] 
+<msg timestamp="20230420 22:09:10.658" level="INFO">GET Response : url=https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522%2C151.1957362&amp;radius=500&amp;types=restaurant&amp;name=harbour&amp;key=AIzaSyAk1wVfVP1wqDRV4QncZ4YF72JrcB7KCvc 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=UTF-8', 'Date': 'Thu, 20 Apr 2023 16:39:10 GMT', 'Expires': 'Thu, 20 Apr 2023 16:44:10 GMT', 'Cache-Control': 'public, max-age=300', 'Vary': 'Accept-Language', 'Server': 'scaffolding on HTTPServer2', 'Content-Length': '33591', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'Server-Timing': 'gfet4t7; dur=667', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'} 
+ body={
+   "html_attributions" : [],
+   "results" : [
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : -33.8660355,
+               "lng" : 151.2012092
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -33.86468567010728,
+                  "lng" : 151.2025590298927
+               },
+               "southwest" : {
+                  "lat" : -33.86738532989272,
+                  "lng" : 151.1998593701073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+         "icon_background_color" : "#FF9E67",
+         "icon_mask_base_uri" : "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+         "name" : "Harbour Bar &amp; Restaurant",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 3200,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/110120720524925804190\"\u003eA Google User\u003c/a\u003e"
+               ],
+               "photo_reference" : "AUjq9jmG76KGnrfs9B3R6BZqU8bc_7lU4pCIifdlcvPdYbxRMYAsUnEidc7v3PPeZAQAXdxZR1xkLAecxhfTq2Bp1EYDwz0ccX_ypImkcOtlx6eLTcZMsbtJ_JNOkLJ49Teqtw_6vXW-DuP5ProBoLirKLOSiPZ5H0EdZR3znf6_LkO46jkl",
+               "width" : 4800
+            }
+         ],
+         "place_id" : "ChIJuXedj9ivEmsRmRgLKosy4bA",
+         "plus_code" : {
+            "compound_code" : "46M2+HF Sydney, New South Wales",
+            "global_code" : "4RRH46M2+HF"
+         },
+         "rating" : 3,
+         "reference" : "ChIJuXedj9ivEmsRmRgLKosy4bA",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "bar", "point_of_interest", "food", "establishment" ],
+         "user_ratings_total" : 2,
+         "vicinity" : "King Street Wharf 1, Sydney"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : -33.8719968,
+               "lng" : 151.2023264
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -33.87057897010727,
+                  "lng" : 151.2035857798927
+               },
+               "southwest" : {
+                  "lat" : -33.87327862989272,
+                  "lng" : 151.2008861201073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+         "icon_background_color" : "#FF9E67",
+         "icon_mask_base_uri" : "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+         "name" : "Cockle Bay Wharf",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 3024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/116372774690209599351\"\u003eA Google User\u003c/a\u003e"
+               ],
+               "photo_reference" : "AUjq9jnt8QQzaqFSN_T2DdSdiZkk_iNlNXgSQ-xdNl98uDT0DJrJqQhmC9Fcdf2YT1TlBTDliYXWCJp83nbrT12cJVT8Xyyft2Gu0eS9sB5qX3RVr1Z1GMAzs6-WgYuD1BHi2eoIEKfiw_Fma45yatuGmFqRKTAtHy6aaTozloDWIzkKi2mJ",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJvwSIiTiuEmsRhszQoBc2SY8",
+         "plus_code" : {
+            "compound_code" : "46H2+6W Sydney, New South Wales",
+            "global_code" : "4RRH46H2+6W"
+         },
+         "price_level" : 2,
+         "rating" : 4.4,
+         "reference" : "ChIJvwSIiTiuEmsRhszQoBc2SY8",
+         "scope" : "GOOGLE",
+         "types" : [
+            "restaurant",
+            "cafe",
+            "bar",
+            "point_of_interest",
+            "food",
+            "establishment"
+         ],
+         "user_ratings_total" : 1190,
+         "vicinity" : "201 Sussex St, Sydney"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : -33.8686497,
+               "lng" : 151.2018197
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -33.86738252010728,
+                  "lng" : 151.2032517798927
+               },
+               "southwest" : {
+                  "lat" : -33.87008217989273,
+                  "lng" : 151.2005521201073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png",
+         "icon_background_color" : "#FF9E67",
+         "icon_mask_base_uri" : "https://maps.gstatic.com/mapfiles/place_api/icons/v2/bar_pinlet",
+         "name" : "Cargo Bar",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 787,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/104269049167619826899\"\u003eCargo Bar\u003c/a\u003e"
+               ],
+               "photo_reference" : "AUjq9jkzNfNzjTkfFndufP5Zjdl7s-1trRQZ7M1p823isEtSOQeJ16e_WAYiUOYOkYI9iAcBgYKBL4t77jWB_JYYHFODSKluxZibJAHpLz0FmQfANq4544W27vMJOdeUD5WM9eSCJ6Wk9oB1jJFLz82vW2oxQ7vnvX46WSuHQ1378Gsh9hzI",
+               "width" : 1400
+            }
+         ],
+         "place_id" : "ChIJXxX3dkeuEmsRK39KITl0US8",
+         "plus_code" : {
+            "compound_code" : "46J2+GP Sydney, New South Wales",
+            "global_code" : "4RRH46J2+GP"
+         },
+         "price_level" : 2,
+         "rating" : 4.1,
+         "reference" : "ChIJXxX3dkeuEmsRK39KITl0US8",
+         "scope" : "GOOGLE",
+         "types" : [
+            "bar",
+            "night_club",
+            "restaurant",
+            "point_of_interest",
+            "food",
+            "establishment"
+         ],
+         "user_ratings_total" : 3207,
+         "vicinity" : "King Street Wharf Darling Harbour, Darling Harbour, 52-60 The Promenade, Sydney"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : -33.871722,
+               "lng" : 151.2017878
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -33.87046302010727,
+                  "lng" : 151.2035043798927
+               },
+               "southwest" : {
+                  "lat" : -33.87316267989272,
+                  "lng" : 151.2008047201072
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+         "icon_background_color" : "#7B9EB0",
+         "icon_mask_base_uri" : "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+         "name" : "Sydney Harbour Marina - Darling Harbour",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 506,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/105253637846931204602\"\u003eA Google User\u003c/a\u003e"
+               ],
+               "photo_reference" : "AUjq9jldcaxiCFdqcgwmqkGslJfEgVRUEkt22kT21sSL6Ep4jzx-jT_sPqxcc0Zh83Jb89j0cnXuVZJ8oh895ciCyfqrwX2gKD_nEIwxn9mByPWTHFjVF_fZDZctk5VaWt8RXlq9Rp8-vmgR3Ae_Zt7VO60IF3SgxakCErl2wy_847XkXO4V",
+               "width" : 759
+            }
+         ],
+         "place_id" : "ChIJuX9VYICvEmsR46xMZQPYLp0",
+         "plus_code" : {
+            "compound_code" : "46H2+8P Sydney, New South Wales",
+            "global_code" : "4RRH46H2+8P"
+         },
+         "rating" : 4.9,
+         "reference" : "ChIJuX9VYICvEmsR46xMZQPYLp0",
+         "scope" : "GOOGLE",
+         "types" : [ "storage", "restaurant", "point_of_interest", "food", "establishment" ],
+         "user_ratings_total" : 31,
+         "vicinity" : "5 Wheat Rd, Sydney"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "location" : {
+               "lat" : -33.8717324,
+               "lng" : 151.2021438
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -33.87046662010727,
+                  "lng" : 151.2035876298927
+               },
+               "southwest" : {
+                  "lat" : -33.87316627989271,
+                  "lng" : 151.2008879701073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+         "icon_background_color" : "#FF9E67",
+         "icon_mask_base_uri" : "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+         "name" : "Adria Bar Restaurant",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 506,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/100168888649439855862\"\u003eA Google User\u003c/a\u003e"
+               ],
+               "photo_reference" : "AUjq9jlxG5oVl1IiXALUWLAZr5lloSJk8qoiw-b4f3ZrYMXgMcQwct3IeIitPftSZBXbK5x9NIbkOntYco2l7GhRRYRRHTDhB2tJgE378HnXGJWbpji8l76bRw6FbGAvk2m1U8mYb3ZDSnizYWXx1Qr8PJjtw0x0eADt20eCGzqkIoqS6Uxp",
+               "width" : 759
+            }
+         ],
+         "place_id" : "ChIJ8RXmITmuEmsRznrugcSQwxU",
+         "plus_code" : {
+            "compound_code" : "46H2+8V Sydney, New South Wales",
+            "global_code" : "4RRH46H2+8V"
+         },
+         "price_level" : 2,
+         "rating" : 3.7,
+         "reference" : "ChIJ8RXmITmuEmsRznrugcSQwxU",
+         "scope" : "GOOGLE",
+         "types" : [ "restaurant", "bar", "point_of_interest", "food", "establishment" ],
+         "user_ratings_total" : 1420,
+         "vicinity" : "The Promenade, Cockle Bay Wharf Darling Harbour, Wheat Rd, Sydney"
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "geometry" : {
+            "loca... (set the log level to DEBUG or TRACE to see the full content) 
  </msg>
-<msg timestamp="20230414 22:21:48.733" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20230414 22:21:48.717" endtime="20230414 22:21:48.733"/>
+<msg timestamp="20230420 22:09:10.658" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230420 22:09:09.748" endtime="20230420 22:09:10.658"/>
 </kw>
-<kw name="Convert To String" library="BuiltIn">
-<var>${status_code}</var>
+<kw name="Log To Console" library="BuiltIn">
 <arg>${resp.status_code}</arg>
-<doc>Converts the given item to a Unicode string.</doc>
-<msg timestamp="20230414 22:21:48.733" level="INFO">${status_code} = 200</msg>
-<status status="PASS" starttime="20230414 22:21:48.733" endtime="20230414 22:21:48.733"/>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230420 22:09:10.669" endtime="20230420 22:09:10.673"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
-<arg>${status_code}</arg>
+<arg>${resp.content}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230414 22:21:48.733" endtime="20230414 22:21:48.733"/>
+<status status="PASS" starttime="20230420 22:09:10.673" endtime="20230420 22:09:11.088"/>
 </kw>
-<kw name="Should Be Equal" library="BuiltIn">
-<arg>${status_code}</arg>
-<arg>200</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" starttime="20230414 22:21:48.733" endtime="20230414 22:21:48.733"/>
-</kw>
-<kw name="Get Value From Json" library="JSONLibrary">
-<var>${category}</var>
-<arg>${resp.json()}</arg>
-<arg>$[0].category</arg>
-<doc>Get Value From JSON using JSONPath</doc>
-<msg timestamp="20230414 22:21:48.764" level="INFO">${category} = ['Shooter']</msg>
-<status status="PASS" starttime="20230414 22:21:48.733" endtime="20230414 22:21:48.764"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${category[0]}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230414 22:21:48.764" endtime="20230414 22:21:48.764"/>
-</kw>
-<kw name="Should Be Equal" library="BuiltIn">
-<arg>${category[0]}</arg>
-<arg>Shooter</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" starttime="20230414 22:21:48.764" endtime="20230414 22:21:48.764"/>
-</kw>
-<status status="PASS" starttime="20230414 22:21:48.702" endtime="20230414 22:21:48.764"/>
+<status status="PASS" starttime="20230420 22:09:09.748" endtime="20230420 22:09:11.088"/>
 </test>
-<status status="PASS" starttime="20230414 22:21:48.307" endtime="20230414 22:21:48.764"/>
+<status status="PASS" starttime="20230420 22:09:09.398" endtime="20230420 22:09:11.096"/>
 </suite>
 <statistics>
 <total>
@@ -83,7 +319,7 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="TC4 COMPLEX JSON">TC4 COMPLEX JSON</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="TC10 GOOGLEMAPAPIKEYAUTH">TC10 GOOGLEMAPAPIKEYAUTH</stat>
 </suite>
 </statistics>
 <errors>
